@@ -6,9 +6,12 @@
 
 package com.example.kristenwoodward.myapplication.backend;
 
+import com.example.JavaJoke;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+
+import com.example.JavaJoke;
 
 import javax.inject.Named;
 
@@ -29,12 +32,17 @@ public class MyEndpoint {
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
-        MyBean response = new MyBean();
-        response.setData("Hi, " + name);
+    @ApiMethod(name = "getJoke")
+    public MyJoke getJoke(@Named("name") String name) {
+        MyJoke myJoke = new MyJoke();
 
-        return response;
+        JavaJoke newJavaJoke = new JavaJoke();
+        String joke = newJavaJoke.getJoke();
+
+
+        myJoke.setData(joke);
+
+        return myJoke;
     }
 
 }

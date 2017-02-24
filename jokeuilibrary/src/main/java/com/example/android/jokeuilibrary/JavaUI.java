@@ -6,9 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
  * Created by kristenwoodward on 2/23/17.
  */

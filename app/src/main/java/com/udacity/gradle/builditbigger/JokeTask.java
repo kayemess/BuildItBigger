@@ -68,7 +68,7 @@ public class JokeTask{
             Object name = params[0];
 
             try {
-                return myApiService.sayHi(String.valueOf(name)).execute().getData();
+                return myApiService.getJoke(String.valueOf(name)).execute().getData();
             } catch (IOException e) {
                 return e.getMessage();
             }
