@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.example.android.jokeuilibrary.JavaUI;
 import com.example.kristenwoodward.myapplication.backend.myApi.MyApi;
-import com.example.kristenwoodward.myapplication.backend.myApi.model.MyBean;
+import com.example.kristenwoodward.myapplication.backend.myApi.model.MyJoke;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
