@@ -1,6 +1,8 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -53,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
         Intent displayJoke = new Intent(MainActivity.this, JavaUI.class);
         displayJoke.putExtra(JOKE_INTENT_EXTRAS,newJoke);
         startActivity(displayJoke);
+
+        // Call Async to test Google Cloud Enpoints
+        JokeTask jokeTask = new JokeTask(this);
+        Object[] name = {"Kristen"};
+        jokeTask.execute(name);
 
         //Toast.makeText(this, newJoke, Toast.LENGTH_SHORT).show();
     }
