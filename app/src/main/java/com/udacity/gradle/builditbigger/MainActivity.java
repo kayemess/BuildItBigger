@@ -48,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        Object[] names = {"Kristen"};
+
+        JokeTask jokeTask = new JokeTask(this);
+        jokeTask.execute(names);
+
+
         JavaJoke javaJoke = new JavaJoke();
         String newJoke = javaJoke.GetJoke();
         Intent displayJoke = new Intent(MainActivity.this, JavaUI.class);
