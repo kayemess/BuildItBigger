@@ -13,6 +13,8 @@ import com.google.api.server.spi.config.ApiNamespace;
 
 import com.example.JavaJoke;
 
+import java.util.Random;
+
 import javax.inject.Named;
 
 /**
@@ -29,18 +31,21 @@ import javax.inject.Named;
 )
 public class MyEndpoint {
 
+    MyJoke myJoke;
+    JavaJoke newJavaJoke;
+    String mJoke;
+
     /**
      * A simple endpoint method that takes a name and says Hi back
      */
     @ApiMethod(name = "getJoke")
-    public MyJoke getJoke(@Named("name") String name) {
-        MyJoke myJoke = new MyJoke();
+    public MyJoke getJoke(@Named("radomInt") int randomInt) {
+        myJoke = new MyJoke();
+        newJavaJoke = new JavaJoke();
 
-        JavaJoke newJavaJoke = new JavaJoke();
-        String joke = newJavaJoke.getJoke();
+        mJoke = newJavaJoke.getJoke(randomInt);
 
-
-        myJoke.setData(joke);
+        myJoke.setData(mJoke);
 
         return myJoke;
     }

@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.JavaJoke;
 import com.example.android.jokeuilibrary.JavaUI;
 
 import static com.example.android.jokeuilibrary.JavaUI.JOKE_INTENT_EXTRAS;
@@ -49,16 +48,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        Object[] names = {"Kristen"};
-
-        JokeTask jokeTask = new JokeTask(this, this);
-        jokeTask.getRandomJoke(names);
-        //Log.i("Main Activity: ", newJoke);
-/*        Intent displayJoke = new Intent(MainActivity.this, JavaUI.class);
-        displayJoke.putExtra(JOKE_INTENT_EXTRAS,newJoke);
-        startActivity(displayJoke);*/
-
-        //Toast.makeText(this, newJoke, Toast.LENGTH_SHORT).show();
+        GetJokeTask getJokeTask = new GetJokeTask(new OnTaskCompleted() {
+            @Override
+            public void OnTaskCompleted(String result) {
+                Intent displayJoke = new Intent(getBaseContext(), JavaUI.class);
+                displayJoke.putExtra(JOKE_INTENT_EXTRAS, result);
+                startActivity(displayJoke);
+            }
+        });
+        getJokeTask.execute();
     }
 
 
